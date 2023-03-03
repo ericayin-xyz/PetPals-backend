@@ -1,0 +1,24 @@
+const express = require('express')
+const cardRouter = require('./controllers/cards/cardRoutes')
+const searchRouter = require('./controllers/search/searchRoutes')
+
+
+const app = express()
+app.use(express.json());
+
+const PORT =5000
+
+app.get("/", (req, res) => {
+    res.json({
+        data: "Data"
+    })
+})
+
+app.use("/cards", cardRouter)
+app.use("/search", searchRouter)
+
+app.listen(PORT, () => {
+    console.log("Server Started!")
+})
+
+
