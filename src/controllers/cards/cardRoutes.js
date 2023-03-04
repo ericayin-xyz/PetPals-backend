@@ -23,7 +23,7 @@ cardRouter.get("/:cardId", (req, res) => {
 cardRouter.post("/", (req, res) => {
     const card = createCard({
         name: req.body.name,
-        experience: res.body.experience,
+        experience: req.body.experience,
         phone: req.body.phone,
         email: req.body.email,
         address: req.body.address,
