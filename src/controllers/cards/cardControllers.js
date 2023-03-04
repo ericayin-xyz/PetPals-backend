@@ -1,3 +1,5 @@
+const Card = require('../../models/card')
+
 const cards = [
     {
         "id": 1,
@@ -31,20 +33,22 @@ const cards = [
     }
 ]
 
-function getCards() {
+async function getCards() {
+    const cards = await Card.find()
     return cards
 }
 
-function getCardById(cardId) {
-    const card = cards[cardId]
-    return card
+async function getCardById(cardId) {
+    try {
+        const card = await Card.findById(cardId)
+        return card
+    } catch(err) {
+        console.log(err)
+    }
 }
 
-function createCard(card) {
-    const newCard = {
-        id: 3,
-        ...card,
-    }
+async function createCard(card) {
+    const newCard = await Card.create(card)
     return newCard
 }
 
