@@ -6,12 +6,27 @@ const ReviewSchema = new mongoose.Schema({
 })
 
 const CardSchema = new mongoose.Schema({
-    name: String,
+    name: {
+        type: String,
+        required: true,
+        minLength: 1,
+    },
     experience: String,
     phone: Number,
-    email: String,
+    email: {
+        type: String,
+        required: true,
+    },
     address: String,
-    description: String,
+    description: {
+        type: String,
+        validate: {
+            validator: (value) => {
+                return !value.includes("hello")
+            },
+            message: "Description cannot contain the word ",
+        }
+    },
     reviews: [ReviewSchema]
 })
 
