@@ -9,6 +9,7 @@ const searchRouter = require('./controllers/search/searchRoutes')
 const app = express()
 
 app.use(helmet())
+
 app.use(express.json());
 
 
