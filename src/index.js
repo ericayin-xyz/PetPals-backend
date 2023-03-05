@@ -1,27 +1,8 @@
-const express = require('express')
-const mongoose = require('mongoose')
-
-const cardRouter = require('./controllers/cards/cardRoutes')
-const searchRouter = require('./controllers/search/searchRoutes')
-
-
-const app = express()
-app.use(express.json());
-
-const PORT =5000
-
-app.get("/", (req, res) => {
-    res.json({
-        data: "Data"
-    })
-})
-
-app.use("/cards", cardRouter)
-app.use("/search", searchRouter)
+const mongoose = require('mongoose');
+const { app, PORT } = require('./server')
 
 app.listen(PORT, () => {
     console.log("Server Started!")
-    // mongoose.connect('mongodb://localhost:27017/petpals')
     mongoose.set('strictQuery', false)
     mongoose.connect('mongodb://127.0.0.1:27017/petpals')
     .then(() => console.log('Database connected!'))

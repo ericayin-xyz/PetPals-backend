@@ -1,9 +1,8 @@
-const mongoose = require('mongoose')
+const mongoose = require("mongoose");
 
 const ReviewSchema = new mongoose.Schema({
     point: Number,
-    description: String,
-})
+});
 
 const CardSchema = new mongoose.Schema({
     name: {
@@ -12,24 +11,27 @@ const CardSchema = new mongoose.Schema({
         minLength: 1,
     },
     experience: String,
-    phone: Number,
-    email: {
+    city: {
         type: String,
         required: true,
+        minLength: 3,
     },
-    address: String,
-    description: {
+    phone: {
+        type: Number,
+        minLength: 6,
+    },
+    email: {
         type: String,
-        validate: {
-            validator: (value) => {
-                return !value.includes("hello")
-            },
-            message: "Description cannot contain the word ",
-        }
+        validate: (value) => {
+            return value.includes("@")
+        },
+        message: "Please enter a valid email address"
     },
-    reviews: [ReviewSchema]
-})
+    description: String,
+    // image: image
+    reviews: [ReviewSchema],
+});
 
-const Card = mongoose.model('Card', CardSchema)
+const Card = mongoose.model("Card", CardSchema);
 
-module.exports = Card
+module.exports = Card;
