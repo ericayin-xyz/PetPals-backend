@@ -1,20 +1,37 @@
-const mongoose = require('mongoose')
+const mongoose = require("mongoose");
 
 const ReviewSchema = new mongoose.Schema({
     point: Number,
-    description: String,
-})
+});
 
 const CardSchema = new mongoose.Schema({
-    name: String,
+    name: {
+        type: String,
+        required: true,
+        minLength: 1,
+    },
     experience: String,
-    phone: Number,
-    email: String,
-    address: String,
+    city: {
+        type: String,
+        required: true,
+        minLength: 3,
+    },
+    phone: {
+        type: Number,
+        minLength: 6,
+    },
+    email: {
+        type: String,
+        validate: (value) => {
+            return value.includes("@")
+        },
+        message: "Please enter a valid email address"
+    },
     description: String,
-    reviews: [ReviewSchema]
-})
+    // image: image
+    reviews: [ReviewSchema],
+});
 
-const Card = mongoose.model('Card', CardSchema)
+const Card = mongoose.model("Card", CardSchema);
 
-module.exports = Card
+module.exports = Card;

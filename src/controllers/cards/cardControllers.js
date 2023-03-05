@@ -4,32 +4,32 @@ const cards = [
     {
         "id": 1,
         "name": "Alice",
-        "experience": "Experience: 5 years",
+        "experience": 2,
         "phone": "(04) 1666-4784",
-        "email": "alice@example.com",
-        "address": "Catalinaton",
+        "email": "aliceexample.com",
+        "city": "Catalinaton",
         "description": "Professional pet sitter with 5 years of experience. Flexible scheduling to accommodate clients' needs",
         "value": "5"
     },
     {
         "id": 2,
         "name": "Bob",
-        "experience": "Experience: more than 5 years",
+        "experience": 5,
         "phone": "(04) 4635-7736",
-        "email": "bob@example.com",
-        "address": "East Vinnieton",
+        "email": "bobexample.com",
+        "city": "East Vinnieton",
         "description": "Excellent communication skills, including regular updates for pet owners while they are away.",
         "value": "4.5"
     },
     {
         "id": 3,
         "name": "Charlie",
-        "experience": "Experience: 1 year",
+        "experience": 2,
         "phone": "(02) 4861-4744",
-        "email": "charlie@example.com",
+        "city": "charlieexample.com",
         "address": "South Noemietown",
         "description": "Skilled in providing exceptional care and attention to pets of all types and sizes.",
-        "value": "3.8"
+
     }
 ]
 
