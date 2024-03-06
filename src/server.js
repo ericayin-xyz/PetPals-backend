@@ -12,7 +12,6 @@ app.use(helmet())
 
 app.use(express.json());
 
-
 const corsOption = {
     origin: ["http://localhost:3000", "https://mellifluous-dieff.netlify.app"], 
     optionsSuccessStatus: 200

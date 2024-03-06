@@ -1,13 +1,5 @@
 const Card = require('../../models/card')
-const cardRouter = require('./cardRoutes')
-// {
-//     "name": "Alice",
-//     "experience": "2 years",
-//     "city": "Catalinaton",
-//     "phone": 16664784,
-//     "email": "alice@gmail.com",
-//     "description": "Professional pet sitter with 5 years of experience. Flexible scheduling to accommodate clients' needs"
-// }
+
 const cards = [
     {
         "id": 1,
@@ -41,22 +33,20 @@ const cards = [
     }
 ]
 
-async function getCards() {
-    const cards = await Card.find()
+function getCards() {
     return cards
 }
 
-async function getCardById(cardId) {
-    try {
-        const card = await Card.findById(cardId)
-        return card
-    } catch(err) {
-        console.log(err)
-    }
+function getCardById(cardId) {
+    const card = cards[cardId]
+    return card
 }
 
-async function createCard(card) {
-    const newCard = await Card.create(card)
+function createCard(card) {
+    const newCard = {
+        id: 4,
+        ...card,
+    }
     return newCard
 }
 
@@ -79,7 +69,5 @@ async function deleteCard(cardId) {
 module.exports = {
     getCards,
     getCardById,
-    createCard,
-    updateCard,
-    deleteCard,
+    createCard
 }
