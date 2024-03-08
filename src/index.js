@@ -29,8 +29,7 @@ app.use('/cards', cardRouter)
 app.listen(PORT, () => {
     console.log("Server Started!")
     mongoose.set('strictQuery', false)
-    mongoose.connect("mongodb://127.0.0.1:27017/petpals", () => {
-        console.log("Database connected!")
+    mongoose.connect(process.env.MONGO_URL, {useNewUrlParser: true, useUnifiedTopology: true}, () => {
+        console.log("Mongodb connected!")
     })
 })
-
