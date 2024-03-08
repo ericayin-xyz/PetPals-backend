@@ -2,12 +2,6 @@ const express = require('express');
 const mongoose = require('mongoose');
 // const { app, PORT } = require('./server')
 
-// app.listen(PORT, () => {
-//     mongoose.connect(process.env.MONGO_URI)
-//     .then(() => console.log('Database connected!'))
-//     .catch(error => console.log(error.message));
-// })
-
 
 
 const cardRouter = require('./controllers/cards/cardRoutes');
@@ -29,7 +23,12 @@ app.use('/cards', cardRouter)
 app.listen(PORT, () => {
     console.log("Server Started!")
     mongoose.set('strictQuery', false)
-    mongoose.connect(process.env.MONGO_URL, {useNewUrlParser: true, useUnifiedTopology: true}, () => {
+    mongoose.connect(process.env.MONGO_URI, {useNewUrlParser: true, useUnifiedTopology: true}, () => {
         console.log("Mongodb connected!")
     })
 })
+
+//     mongoose.connect(process.env.MONGO_URI)
+//     .then(() => console.log('Database connected!'))
+//     .catch(error => console.log(error.message));
+
