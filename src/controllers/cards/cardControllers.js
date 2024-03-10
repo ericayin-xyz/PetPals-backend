@@ -28,16 +28,15 @@ async function createCard(card) {
 //     return updatedCard
 // }
 
-async function deleteCard(cardId) {
-    //deleteOne/Many will delete but not return the records
-    //findByIdAndDelete / findOneAndDelete returns the records
-    const deletedCard = await Card.findByIdAndDelete(cardId)
-    return deletedCard
-}
+// async function deleteCard(cardId) {
+//     //deleteOne/Many will delete but not return the records
+//     //findByIdAndDelete / findOneAndDelete returns the records
+//     const deletedCard = await Card.findByIdAndDelete(cardId)
+//     return deletedCard
+// }
 
 module.exports = {
     getCards,
     getCardById,
     createCard,
-    deleteCard
 }

@@ -4,7 +4,6 @@ const helmet = require("helmet")
 require("dotenv").config()
 
 const cardRouter = require('./controllers/cards/cardRoutes')
-const searchRouter = require('./controllers/search/searchRoutes')
 
 const app = express()
 
@@ -25,9 +24,8 @@ app.get("/", (request, response) => {
         data: "Data Sent",
     })
 })
-
+ 
 app.use("/cards", cardRouter)
-app.use("/cardId", searchRouter)
 
 module.exports = {
     app,

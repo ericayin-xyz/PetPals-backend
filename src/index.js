@@ -2,8 +2,6 @@ const express = require('express');
 const mongoose = require('mongoose');
 // const { app, PORT } = require('./server')
 
-
-
 const cardRouter = require('./controllers/cards/cardRoutes');
 
 const app = express()
@@ -18,7 +16,7 @@ app.get('/', (req, res) => {
     })
 })
 
-app.use('/cards', cardRouter)
+// app.use('/cards', cardRouter)
 
 app.listen(PORT, () => {
     console.log("Server Started!")

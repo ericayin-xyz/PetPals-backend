@@ -6,7 +6,7 @@ const cardRouter = express.Router()
 
 cardRouter.get("/", async (req, res) => {
     const cards = await getCards()
-    res.json(cards);
+    res.json(cards)
 })
 
 cardRouter.get("/:cardId", async (req, res) => {
@@ -35,8 +35,6 @@ cardRouter.delete("/:cardId", async (req, res) => {
     const card = await deleteCard(req.params.cardId)
     res.json(card)
 })
-
-
 
 module.exports = cardRouter
 
