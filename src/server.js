@@ -24,7 +24,7 @@ app.get("/", (request, response) => {
         data: "Data Sent",
     })
 })
- 
+
 app.use("/cards", cardRouter)
 
 module.exports = {

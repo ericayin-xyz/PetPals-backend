@@ -4,7 +4,7 @@ const { MongoClient } = require("mongodb");
 const uri = "mongodb+srv://erica:pa$$w0rd@petpals.2sao6h1.mongodb.net/?retryWrites=true&w=majority&appName=petpals";
 const client = new MongoClient(uri);
 
-const databaseName = "testDatabase";
+const databaseName = "petpals";
 const collectionName = "cards";
 
 // Connect to the database before running tests
@@ -23,16 +23,16 @@ test("should insert a doc into collection", async () => {
     const usersCollection = client.db(databaseName).collection(collectionName);
 
     const mockUser = {
-        _id: "05",
-        name: "Jane",
-        email: "jane@example.com",
-        experience: "2",
+        _id: "06",
+        name: "June",
+        email: "june@example.com",
+        experience: "3",
         phone: "0392859302",
         description: "Hell0 world",
         };
     await usersCollection.insertOne(mockUser);
 
-    const insertedUser = await usersCollection.findOne({ _id: "03" });
+    const insertedUser = await usersCollection.findOne({ _id: "3" });
     expect(insertedUser).toEqual(mockUser);
 });
 
