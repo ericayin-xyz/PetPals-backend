@@ -1,7 +1,7 @@
 const mongoose = require("mongoose")
 
 const ReviewSchema = new mongoose.Schema({
-    // point: Number,
+    point: Number,
     description: String,
 })
 
@@ -12,7 +12,7 @@ const CardSchema = new mongoose.Schema({
         minLength: 3,
     },
     experience: String,
-    city: {
+    address: {
         type: String,
         minLength: 3,
     },

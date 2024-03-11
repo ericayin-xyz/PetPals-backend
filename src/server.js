@@ -25,7 +25,7 @@ app.get("/", (request, response) => {
     })
 })
 
-app.use("/cards", cardRouter)
+app.use("/petparent", cardRouter)
 
 module.exports = {
     app,

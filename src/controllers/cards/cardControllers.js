@@ -19,24 +19,26 @@ async function createCard(card) {
     return newCard
 }
 
-// async function updateCard(cardId, card) {
-//     const updatedCard = await Card.findByIdAndUpdate(cardId, card, {
-//         returnDocument: "before",
-//         new: true, // return the updated card
-//         // upsert: true, // create a new card if it doesn't exist
-//     })
-//     return updatedCard
-// }
+async function updateCard(cardId, card) {
+    const updatedCard = await Card.findByIdAndUpdate(cardId, card, {
+        // returnDocument: "before",
+        new: true, // return the updated card
+        upsert: true, // create a new card if it doesn't exist
+    })
+    return updatedCard
+}
 
-// async function deleteCard(cardId) {
-//     //deleteOne/Many will delete but not return the records
-//     //findByIdAndDelete / findOneAndDelete returns the records
-//     const deletedCard = await Card.findByIdAndDelete(cardId)
-//     return deletedCard
-// }
+async function deleteCard(cardId) {
+    //deleteOne/Many will delete but not return the records
+    //findByIdAndDelete / findOneAndDelete returns the records
+    const deletedCard = await Card.findByIdAndDelete(cardId)
+    return deletedCard
+}
 
 module.exports = {
     getCards,
     getCardById,
     createCard,
+    updateCard,
+    deleteCard
 }

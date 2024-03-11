@@ -23,12 +23,12 @@ test("should insert a doc into collection", async () => {
     const usersCollection = client.db(databaseName).collection(collectionName);
 
     const mockUser = {
-        _id: "06",
-        name: "June",
-        email: "june@example.com",
-        experience: "3",
-        phone: "0392859302",
-        description: "Hell0 world",
+        _id: "07",
+        name: "Etrne",
+        email: "Etrne@example.com",
+        experience: "2",
+        phone: "0392859388",
+        description: "Hello world",
         };
     await usersCollection.insertOne(mockUser);
 
