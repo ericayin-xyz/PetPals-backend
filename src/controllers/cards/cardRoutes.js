@@ -4,7 +4,7 @@ const cardRouter = express.Router()
 
 // let cards = []; // This will store our cards in memory
 
-cardRouter.get("/petparent", async (req, res) => {
+cardRouter.get("/petparent/sitters", async (req, res) => {
     const cards = await getCards()
     res.json(cards)
 })
@@ -32,7 +32,7 @@ cardRouter.post("/petsitter", async (req, res) => {
     res.json(card)
 });
 
-cardRouter.put('/petparent/:cardId', async (req, res) => {
+cardRouter.put('/petparent/sitters/:cardId', async (req, res) => {
     const updatedCard = await updateCard(req.params.cardId, {
         name: req.body.name,
         experience: req.body.experience,
@@ -44,7 +44,7 @@ cardRouter.put('/petparent/:cardId', async (req, res) => {
         res.json(updatedCard)
 })
 
-cardRouter.delete("/petparent/:cardId", async (req, res) => {
+cardRouter.delete("/petparent/sitters/:cardId", async (req, res) => {
     const card = await deleteCard(req.params.cardId)
     res.json(card)
 })
