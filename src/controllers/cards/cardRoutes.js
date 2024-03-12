@@ -28,7 +28,7 @@ cardRouter.post("/petsitter", async (req, res) => {
         address: req.body.address,
         description: req.body.description
     })
-    cards.push(card) // Add the card to our "database"
+    // cards.push(card) // Add the card to our "database"
     res.json(card)
 });
 
