@@ -21,11 +21,11 @@ const PORT = process.env.PORT || 5000
 
 app.get("/", (request, response) => {
     response.json({
-        data: "Data Sent",
+        data: "Data Sent!",
     })
 })
 
-app.use("/petparent", cardRouter)
+app.use("/cards", cardRouter)
 
 module.exports = {
     app,

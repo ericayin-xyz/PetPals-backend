@@ -1,8 +1,7 @@
 const mongoose = require("mongoose")
 
 const ReviewSchema = new mongoose.Schema({
-    point: Number,
-    description: String,
+    point: Number
 })
 
 const CardSchema = new mongoose.Schema({
