@@ -2,12 +2,14 @@ const express = require('express')
 const {getCards, getCardById, createCard, updateCard, deleteCard } = require('./cardControllers')
 const cardRouter = express.Router()
 
-cardRouter.get("/", async (req, res) => {
+// let cards = []; // This will store our cards in memory
+
+cardRouter.get("/petparent", async (req, res) => {
     const cards = await getCards()
     res.json(cards)
 })
 
-cardRouter.get("/:cardId", async (req, res) => {
+cardRouter.get("/petparent/:cardId", async (req, res) => {
     const card = await getCardById(req.params.cardId)
     if(!card) {
         res.status(404).json({
@@ -17,7 +19,7 @@ cardRouter.get("/:cardId", async (req, res) => {
     res.json(card)
 })
 
-cardRouter.post("/", async (req, res) => {
+cardRouter.post("/petsitter", async (req, res) => {
     const card = await createCard({
         name: req.body.name,
         experience: req.body.experience,
@@ -26,10 +28,11 @@ cardRouter.post("/", async (req, res) => {
         address: req.body.address,
         description: req.body.description
     })
+    cards.push(card) // Add the card to our "database"
     res.json(card)
 });
 
-cardRouter.put('/:cardId', async (req, res) => {
+cardRouter.put('/petparent/:cardId', async (req, res) => {
     const updatedCard = await updateCard(req.params.cardId, {
         name: req.body.name,
         experience: req.body.experience,
@@ -41,7 +44,7 @@ cardRouter.put('/:cardId', async (req, res) => {
         res.json(updatedCard)
 })
 
-cardRouter.delete("/:cardId", async (req, res) => {
+cardRouter.delete("/petparent/:cardId", async (req, res) => {
     const card = await deleteCard(req.params.cardId)
     res.json(card)
 })
