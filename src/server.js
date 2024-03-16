@@ -15,25 +15,23 @@ const corsOption = {
     origin: ["http://localhost:3000", "https://mellifluous-dieff.netlify.app"], 
     optionsSuccessStatus: 200
 }
-// const corsOption = {
-//     origin: "http://localhost:3000", 
-//     optionsSuccessStatus: 200
-// }
 
 app.use(cors(corsOption))
 
 const PORT = process.env.PORT || 5000
 
-app.get("/", (request, response) => {
-    response.json({
-        data: "Data Sent!",
-    })
-})
 
-// app.use("/cards", cardRouter)
 app.use("/", cardRouter)
 
 module.exports = {
     app,
     PORT
 }
+
+// app.get("/", (request, response) => {
+//     response.json({
+//         data: "Data Sent!",
+//     })
+// })
+
+// app.use("/cards", cardRouter)

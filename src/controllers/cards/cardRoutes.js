@@ -9,6 +9,11 @@ cardRouter.get("/petparent/sitters", async (req, res) => {
     res.json(cards)
 })
 
+cardRouter.get("/petparent", async (req, res) => {
+    const cards = await getCards()
+    res.json(cards)
+})
+
 cardRouter.get("/petparent/:cardId", async (req, res) => {
     const card = await getCardById(req.params.cardId)
     if(!card) {

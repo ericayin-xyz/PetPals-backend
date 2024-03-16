@@ -8,7 +8,6 @@ const CardSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true,
-        minLength: 3,
     },
     experience: String,
     address: {
@@ -18,19 +17,9 @@ const CardSchema = new mongoose.Schema({
 
     email: {
         type: String,
-        validate: (value) => {
-            return value.includes("@")
-        },
-        message: "Please enter a valid email address"
     },
     phone: {
         type: String,
-        validate: {
-            validator: (value) => {
-                return /^0\d{9,10}$/.test(value);
-            },
-            message: props => `${props.value} is not a valid phone number!`
-        },
         required: true
     },
     description: String,
