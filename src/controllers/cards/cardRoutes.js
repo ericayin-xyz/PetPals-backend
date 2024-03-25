@@ -31,7 +31,8 @@ cardRouter.post("/petsitter", async (req, res) => {
         phone: req.body.phone,
         email: req.body.email,
         address: req.body.address,
-        description: req.body.description
+        description: req.body.description,
+        image: req.body.image,
     })
     // cards.push(card) // Add the card to our "database"
     res.json(card)
@@ -45,6 +46,7 @@ cardRouter.put('/petparent/sitters/:cardId', async (req, res) => {
         email: req.body.email,
         address: req.body.address,
         description: req.body.description,
+        image: req.body.image,
         })
         res.json(updatedCard)
 })

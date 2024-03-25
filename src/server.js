@@ -27,11 +27,3 @@ module.exports = {
     app,
     PORT
 }
-
-// app.get("/", (request, response) => {
-//     response.json({
-//         data: "Data Sent!",
-//     })
-// })
-
-// app.use("/cards", cardRouter)

@@ -1,7 +1,8 @@
 const mongoose = require("mongoose")
 
 const ReviewSchema = new mongoose.Schema({
-    point: Number
+    rating: Number,
+    description: String,
 })
 
 const CardSchema = new mongoose.Schema({
@@ -17,12 +18,16 @@ const CardSchema = new mongoose.Schema({
 
     email: {
         type: String,
+        required: true
     },
     phone: {
         type: String,
         required: true
     },
     description: String,
+    image: { 
+        type: String,
+    },
     reviews: [ReviewSchema],
 })
 
