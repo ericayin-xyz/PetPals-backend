@@ -1,9 +1,9 @@
-const mongoose = require("mongoose")
+const mongoose = require("mongoose");
 
 const ReviewSchema = new mongoose.Schema({
     rating: Number,
     description: String,
-})
+});
 
 const CardSchema = new mongoose.Schema({
     name: {
@@ -15,7 +15,6 @@ const CardSchema = new mongoose.Schema({
         type: String,
         minLength: 3,
     },
-
     email: {
         type: String,
         required: true
@@ -28,9 +27,9 @@ const CardSchema = new mongoose.Schema({
     image: { 
         type: String,
     },
-    reviews: [ReviewSchema],
-})
+    reviews: [ReviewSchema], 
+});
 
-const Card = mongoose.model("Card", CardSchema)
+const Card = mongoose.model("Card", CardSchema);
 
-module.exports = Card
+module.exports = Card;
