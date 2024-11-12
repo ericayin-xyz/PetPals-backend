@@ -12,13 +12,14 @@ app.use(helmet())
 app.use(express.json());
 
 const corsOption = {
-    origin: ["http://localhost:3000", "https://mellifluous-dieff.netlify.app"], 
+    // origin: ["http://localhost:3000", "https://mellifluous-dieff.netlify.app"], 
+    origin: "*",
     optionsSuccessStatus: 200
 }
 
 app.use(cors(corsOption))
 
-const PORT = process.env.PORT || 10000
+const PORT = process.env.PORT || 3000
 
 
 app.use("/", cardRouter)
